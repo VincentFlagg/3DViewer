@@ -1,10 +1,17 @@
-# Publishes a GitHub release when a version tag (v1.2.3) is pushed. The notes
-# come from releases/<tag>.md; docker-compose.yml is attached.
+# Publishes a GitHub release. It runs when a version tag (v1.2.3) is pushed,
+# or from the Actions tab (Release → Run workflow) with a version such as
+# 1.2.3, which also creates the tag. The notes come from releases/<tag>.md;
+# docker-compose.yml is attached.
 name: Release
 
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version, for example 1.2.3'
+        required: true
 
 permissions:
   contents: write
@@ -17,11 +24,13 @@ jobs:
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ github.event_name == 'workflow_dispatch' && format('v{0}', inputs.version) || github.ref_name }}
         run: |
+          if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then echo "Use a version like 1.2.3"; exit 1; fi
           notes="releases/${TAG}.md"
           if [ ! -f "$notes" ]; then echo "Missing $notes"; exit 1; fi
           gh release create "$TAG" docker-compose.yml \
+            --target "$GITHUB_SHA" \
             --title "3D Viewer ${TAG#v}" \
             --notes-file "$notes" \
             --latest
