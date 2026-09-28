@@ -5,7 +5,8 @@
 <h1 align="center">3D Viewer</h1>
 
 <p align="center"><b>Browse, preview and organise the 3D models on your NAS or server, from any device.</b><br>
-Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free</p>
+Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free<br>
+Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 
 <p align="center">
   <a href="#install"><img src="https://img.shields.io/badge/Install-Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Install with Docker"></a>
@@ -77,8 +78,20 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
       └── benchy.stl.json   { "title": "...", "description": "...", "group": "..." }
   ```
 
+## Tested platforms
+
+3D Viewer is tested on the following NAS systems. It also runs on any Linux server or PC with Docker (amd64 or arm64).
+
+| NAS | Operating system | Install with | Where your files are |
+|---|---|---|---|
+| **UGREEN** (DXP series) | UGOS Pro | Docker app or Dockhand (Compose project) | `/volume1`, `/volume2`, …; USB drives in `/mnt/@usb`; remote folders in `/mnt/@remote` |
+| **Synology** | DSM 7.2 or later | Container Manager → **Project** | `/volume1`, `/volume2`, …; USB drives in `/volumeUSB1/usbshare` |
+| **QNAP** | QTS 5 / QuTS hero | Container Station → **Applications** | `/share/<shared folder>` (add `/share` to the volumes and `BROWSE_ROOTS`, see below) |
+
+GPU-accelerated thumbnail rendering works on models with an Intel CPU (they provide `/dev/dri`). Other models render on the CPU.
+
 <a id="install"></a>
-## Install with Dockhand / Docker Compose (UGREEN NAS)
+## Install with Docker Compose
 
 The image `ghcr.io/vincentflagg/3dviewer:latest` runs on amd64 and arm64. Download [**docker-compose.yml**](docker-compose.yml), or copy it from here:
 
@@ -119,12 +132,19 @@ services:
     restart: unless-stopped
 ```
 
-1. Deploy the stack in Dockhand.
+1. Create a new Compose project and paste the file: **Dockhand** or the **Docker** app on UGREEN, **Container Manager → Project** on Synology, **Container Station → Applications** on QNAP. Change the `/app/data` volume to a folder that exists on your NAS (for example `/volume1/docker/3dviewer/data`, or `/share/Container/3dviewer/data` on QNAP), then deploy.
 2. Open `http://<nas-ip>:8733/admin` and create the admin password. (Or set `ADMIN_PASSWORD` in the stack's environment; that also resets a forgotten password.)
 3. Click **Add library**, then browse or search for the folder that holds your models and click **Use this folder**. Repeat for each share or drive.
 4. Open `http://<nas-ip>:8733` to browse the library. Thumbnails appear as the server renders them. The Admin page shows the progress.
 
-### Other NAS / network shares
+### Synology and QNAP notes
+
+- **Synology:** keep the `/volume1`, `/volume2` lines that match your volumes and remove the `/mnt/@usb` and `/mnt/@remote` lines (they are UGREEN paths). For USB drives, add `- /volumeUSB1:/volumeUSB1:rslave` and add `/volumeUSB1` to `BROWSE_ROOTS`.
+- **QNAP:** shared folders live under `/share`. Replace the volume lines with `- /share:/share:rslave`, set `BROWSE_ROOTS=/share`, and remove the `/mnt/@usb` and `/mnt/@remote` lines. USB drives also appear under `/share` (for example `/share/USBDisk1`).
+- **Permissions:** set `PUID` and `PGID` to the user that owns your model folders (run `id <username>` over SSH). On Synology the first user is usually `1026:100`; on QNAP the admin user is `0:0` and regular users start at `500:100`.
+- If the container won't start because of `/dev/dri`, remove the `devices` lines: the model has no GPU device and renders on the CPU instead.
+
+### Network shares
 
 - Connect the share on the NAS first. In UGOS, add it as a remote folder in the **Files** app (SMB/NFS/WebDAV). UGOS mounts remote folders under `/mnt/@remote/…`.
 - The `/mnt/@remote:/mnt/@remote:rslave` volume passes every remote folder into the container, including ones connected later.
@@ -144,12 +164,12 @@ services:
 - The `/mnt/@usb:/mnt/@usb:rslave` volume makes every connected drive visible to the app. Thanks to `rslave`, drives plugged in later show up without restarting the container. Add a drive's folder as a library on the Admin page.
 - Libraries on a drive that is unplugged show **Folder not found** on the Admin page until the drive is back.
 - For any other location, add a volume with the same path on both sides, for example `- /volume3:/volume3`, and make sure the path is in `BROWSE_ROOTS`. `/volume1`–`/volume4` are already listed, and volumes that aren't mounted are ignored.
-- On a Synology NAS, USB drives are under `/volumeUSB1/usbshare`.
+- On a Synology NAS, USB drives are under `/volumeUSB1/usbshare`; on a QNAP NAS, under `/share` (for example `/share/USBDisk1`).
 
 ### GPU rendering
 
 - With `devices: - /dev/dri:/dev/dri`, the renderer tries the GPU first (Vulkan, then OpenGL ES through Mesa). If neither works, it falls back to the CPU (SwiftShader). The Admin page shows which one is in use and the GPU's name.
-- UGREEN DXP models with an Intel CPU (N100, i3, i5…) expose `/dev/dri`.
+- UGREEN DXP, Synology and QNAP models with an Intel CPU (for example N100, Celeron J4125, i3/i5) expose `/dev/dri`.
 - If the container fails to start with an error about `/dev/dri`, your NAS has no GPU device: remove the `devices` lines.
 - `RENDER_GPU=off` forces CPU rendering. `RENDER_GPU=force` accepts a software GPU.
 
@@ -157,7 +177,7 @@ services:
 
 Every version is listed on the [**Releases**](https://github.com/VincentFlagg/3DViewer/releases) page with what changed (also in the [CHANGELOG](CHANGELOG.md)). `:latest` always has the newest version; to stay on one version, use its number instead, for example `ghcr.io/vincentflagg/3dviewer:1.0.0`.
 
-Redeploy the stack in Dockhand, or run `docker compose pull && docker compose up -d`, then hard-refresh your browser (Ctrl+Shift+R, or Cmd+Shift+R on a Mac). Your libraries, settings, notes and thumbnails are kept.
+Pull the new image and redeploy the project in Dockhand, Container Manager or Container Station, or run `docker compose pull && docker compose up -d`, then hard-refresh your browser (Ctrl+Shift+R, or Cmd+Shift+R on a Mac). Your libraries, settings, notes and thumbnails are kept.
 
 ## Configuration
 
