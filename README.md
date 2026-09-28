@@ -21,7 +21,7 @@ Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 >
 > If you want to support our software, please make a donation of **$5**, more or less if you feel like it. Every donation, big or small, helps keep 3D Viewer growing, and it truly means a lot. **Thank you!** 🙏
 >
-> As a thank-you, each donation comes with a supporter key that turns off the short daily splash screen: [**3dview.ittechshop.com**](https://3dview.ittechshop.com). Paste it in **Admin → Supporter license**; it covers everyone using that server, works offline and never expires.
+> As a thank-you, each donation comes with a supporter key that turns off the short daily splash screen and the small reminder in the corner: [**3dview.ittechshop.com**](https://3dview.ittechshop.com). Paste it in **Admin → Supporter license**; it covers everyone using that server, works offline and never expires.
 
 ## See it in action
 
@@ -210,4 +210,4 @@ Libraries, viewer defaults and the other settings are changed on the Admin page 
 
 ## License
 
-3D Viewer is **freeware**: free to use, all rights reserved. You may run the official Docker image on as many of your own machines as you like, for personal or business use. You may not copy, modify, redistribute, resell or reverse engineer it, or remove the supporter splash. The full terms are in [LICENSE](LICENSE). Third-party components included in the image keep their own licenses.
+3D Viewer is **freeware**: free to use, all rights reserved. You may run the official Docker image on as many of your own machines as you like, for personal or business use. You may not copy, modify, redistribute, resell or reverse engineer it, or remove the supporter splash or reminder. The full terms are in [LICENSE](LICENSE). Third-party components included in the image keep their own licenses.

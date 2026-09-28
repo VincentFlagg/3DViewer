@@ -15,14 +15,14 @@ Copyright (c) 2026 VincentFlagg. All rights reserved.
      or any part of them, except by pointing people to the official image;
    - modify, adapt, translate, decompile, deobfuscate or reverse engineer
      the Software, or create works based on it;
-   - remove, bypass or alter the supporter splash screen, the license
-     check, or any copyright or license notice;
+   - remove, bypass or alter the supporter splash screen or reminder, the
+     license check, or any copyright or license notice;
    - sell, rent, sublicense, or offer the Software as a hosted service to
      others.
 
 3. Supporter licenses. A donation of any amount at
    https://3dview.ittechshop.com comes with a supporter key that turns off
-   the daily splash screen on one installation. Donations are voluntary;
+   the daily splash screen and the reminder on one installation. Donations are voluntary;
    every feature works without one.
 
 4. Third-party components included in the Docker image (for example
