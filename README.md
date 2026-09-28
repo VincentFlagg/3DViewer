@@ -10,6 +10,7 @@ Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free</p>
 <p align="center">
   <a href="#install"><img src="https://img.shields.io/badge/Install-Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Install with Docker"></a>
   <a href="https://3dview.ittechshop.com"><img src="https://img.shields.io/badge/%E2%9D%A4%20Donate-any%20amount-e0245e?style=for-the-badge&logo=paypal&logoColor=white" alt="Donate any amount"></a>
+  <a href="https://github.com/VincentFlagg/3DViewer/releases/latest"><img src="https://img.shields.io/github/v/release/VincentFlagg/3DViewer?style=for-the-badge&label=Release&color=3d6bf2" alt="Latest release"></a>
 </p>
 
 ## ❤️ Free for everyone, supported by you
@@ -20,15 +21,27 @@ Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free</p>
 >
 > As a thank-you, each donation comes with a supporter key that turns off the short daily splash screen: [**3dview.ittechshop.com**](https://3dview.ittechshop.com). Paste it in **Admin → Supporter license**; it covers everyone using that server, works offline and never expires.
 
-## Screenshots
+## See it in action
 
-| Gallery with series | Folder info (README) |
-|---|---|
-| ![Series of models](screenshots/series.png) | ![Folder with notes](screenshots/folder-info.png) |
+**Turn any model around**: orbit, pan and zoom, right in the browser.
 
-| 3D viewer (Dusk theme) |
-|---|
-| ![3D viewer](screenshots/viewer.png) |
+<img src="videos/rotate.gif" alt="Rotating a model" width="720">
+
+**Browse and search**: folders, series of related models, folder notes and live search.
+
+<img src="videos/browse.gif" alt="Browsing folders and searching" width="880">
+
+**Fix models that lie on their side**: turn once, save, and the thumbnail follows. The model file is never changed.
+
+<img src="videos/viewer.gif" alt="Wireframe and orientation in the viewer" width="880">
+
+**Organise**: drag models into folders, upload a .zip (it unpacks into its own folder) and choose each folder's picture.
+
+<img src="videos/organise.gif" alt="Moving a model, uploading a zip and choosing a folder picture" width="880">
+
+**Pick a theme**: Auto, Classic light and dark, Mint, Lavender, Peach, Sky and Dusk.
+
+<img src="videos/themes.gif" alt="Switching colour themes" width="880">
 
 ## Features
 
@@ -136,6 +149,8 @@ services:
 - `RENDER_GPU=off` forces CPU rendering. `RENDER_GPU=force` accepts a software GPU.
 
 ### Updating
+
+Every version is listed on the [**Releases**](https://github.com/VincentFlagg/3DViewer/releases) page with what changed (also in the [CHANGELOG](CHANGELOG.md)). `:latest` always has the newest version; to stay on one version, use its number instead, for example `ghcr.io/vincentflagg/3dviewer:1.0.0`.
 
 Redeploy the stack in Dockhand, or run `docker compose pull && docker compose up -d`, then hard-refresh your browser (Ctrl+Shift+R, or Cmd+Shift+R on a Mac). Your libraries, settings, notes and thumbnails are kept.
 
