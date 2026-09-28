@@ -1,0 +1,14 @@
+# Only the page, docker-compose.yml and the release notes belong here.
+# Files created when 3D Viewer is run from this folder, and OS/editor clutter:
+data/
+models/
+.env
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
