@@ -1,0 +1,47 @@
+services:
+  3dviewer:
+    image: ghcr.io/vincentflagg/3dviewer:latest
+    container_name: 3DViewer
+    ports:
+      - "8733:3000"
+    environment:
+      - PORT=3000
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      # Folders the Admin page can pick libraries from (comma separated).
+      - BROWSE_ROOTS=${BROWSE_ROOTS:-/volume1,/volume2,/volume3,/volume4,/mnt/@usb,/mnt/@remote}
+      # Optional: sets/resets the admin password. Leave empty to create it on /admin.
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
+      - SESSION_COOKIE_SECURE=${SESSION_COOKIE_SECURE:-false}
+      - READ_ONLY=${READ_ONLY:-false}
+    # Lets the app mount SMB/NFS shares added on its Admin page. Remove these
+    # lines if you only use shares connected in UGOS (/mnt/@remote).
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
+    security_opt:
+      - apparmor:unconfined
+    # Intel/AMD GPU for faster thumbnail rendering. Remove these two lines if
+    # the NAS has no /dev/dri (the app then renders on the CPU).
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      # App data: settings, libraries, thumbnail and preview cache.
+      - /volume2/docker/3dviewer/data:/app/data
+      # Storage volumes, mounted at the same path as on the NAS.
+      - /volume1:/volume1
+      - /volume2:/volume2
+      # More storage volumes, if the NAS has them:
+      # - /volume3:/volume3
+      # USB / external drives (UGREEN UGOS). rslave lets drives plugged in
+      # after the container started show up without a restart.
+      - /mnt/@usb:/mnt/@usb:rslave
+      # Remote folders connected in UGOS (other NAS / SMB / NFS shares).
+      - /mnt/@remote:/mnt/@remote:rslave
+    healthcheck:
+      test: ["CMD", "node", "/app/healthcheck.js"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+    restart: unless-stopped

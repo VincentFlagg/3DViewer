@@ -1,0 +1,40 @@
+3D Viewer — Freeware License
+
+Copyright (c) 2026 VincentFlagg. All rights reserved.
+
+3D Viewer ("the Software") is free to use. It is licensed, not sold.
+
+1. You MAY, free of charge:
+   - download the official Docker image (ghcr.io/vincentflagg/3dviewer) and
+     run it on any number of your own computers, NAS devices or servers,
+     for personal or business use;
+   - let the people who can reach your installation use it.
+
+2. You MAY NOT, without written permission from the copyright holder:
+   - copy, publish, share or redistribute the Software, its Docker image
+     or any part of them, except by pointing people to the official image;
+   - modify, adapt, translate, decompile, deobfuscate or reverse engineer
+     the Software, or create works based on it;
+   - remove, bypass or alter the supporter splash screen, the license
+     check, or any copyright or license notice;
+   - sell, rent, sublicense, or offer the Software as a hosted service to
+     others.
+
+3. Supporter licenses. A donation of any amount at
+   https://3dview.ittechshop.com comes with a supporter key that turns off
+   the daily splash screen on one installation. Donations are voluntary;
+   every feature works without one.
+
+4. Third-party components included in the Docker image (for example
+   three.js, Express, Chromium, glTF-Transform, meshoptimizer) remain under
+   their own licenses, which are included with them.
+
+5. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES
+   OR OTHER LIABILITY, INCLUDING LOSS OF DATA, ARISING FROM OR IN
+   CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+6. This license ends automatically if you break its terms. You must then
+   stop using the Software and delete your copies.
