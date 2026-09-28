@@ -10,6 +10,7 @@ Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free</p>
 <p align="center">
   <a href="#install"><img src="https://img.shields.io/badge/Install-Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Install with Docker"></a>
   <a href="https://3dview.ittechshop.com"><img src="https://img.shields.io/badge/%E2%9D%A4%20Donate-any%20amount-e0245e?style=for-the-badge&logo=paypal&logoColor=white" alt="Donate any amount"></a>
+  <a href="https://short.ittechshop.com/wyiCyr"><img src="https://img.shields.io/badge/Free-STL%20files-2e9e6b?style=for-the-badge" alt="Free STL files"></a>
   <a href="https://github.com/VincentFlagg/3DViewer/releases/latest"><img src="https://img.shields.io/github/v/release/VincentFlagg/3DViewer?style=for-the-badge&label=Release&color=3d6bf2" alt="Latest release"></a>
 </p>
 
@@ -42,6 +43,10 @@ Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free</p>
 **Pick a theme**: Auto, Classic light and dark, Mint, Lavender, Peach, Sky and Dusk.
 
 <img src="videos/themes.gif" alt="Switching colour themes" width="880">
+
+## 🎁 Free STL files
+
+Want some models to try it out? Free STL files are available at [**short.ittechshop.com/wyiCyr**](https://short.ittechshop.com/wyiCyr). Download them into one of your libraries and they appear in 3D Viewer straight away.
 
 ## Features
 
