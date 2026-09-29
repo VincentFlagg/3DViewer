@@ -11,6 +11,7 @@ Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 <p align="center">
   <a href="#install"><img src="https://img.shields.io/badge/Install-Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Install with Docker"></a>
   <a href="https://3dview.ittechshop.com"><img src="https://img.shields.io/badge/%E2%9D%A4%20Donate-any%20amount-e0245e?style=for-the-badge&logo=paypal&logoColor=white" alt="Donate any amount"></a>
+  <a href="https://buymeacoffee.com/vincentflagg"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-ffdd00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy me a coffee"></a>
   <a href="https://short.ittechshop.com/wyiCyr"><img src="https://img.shields.io/badge/Free-STL%20files-2e9e6b?style=for-the-badge" alt="Free STL files"></a>
   <a href="https://github.com/VincentFlagg/3DViewer/releases/latest"><img src="https://img.shields.io/github/v/release/VincentFlagg/3DViewer?style=for-the-badge&label=Release&color=3d6bf2" alt="Latest release"></a>
 </p>
@@ -21,7 +22,7 @@ Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 >
 > If you want to support our software, please make a donation of **$5**, more or less if you feel like it. Every donation, big or small, helps keep 3D Viewer growing, and it truly means a lot. **Thank you!** 🙏
 >
-> As a thank-you, each donation comes with a supporter key that turns off the short daily splash screen and the small reminder in the corner: [**3dview.ittechshop.com**](https://3dview.ittechshop.com). Paste it in **Admin → Supporter license**; it covers everyone using that server, works offline and never expires.
+> As a thank-you, each donation comes with a supporter key that turns off the short daily splash screen and the small reminder in the corner. Donate with PayPal or a card at [**3dview.ittechshop.com**](https://3dview.ittechshop.com), or [**buy me a coffee**](https://buymeacoffee.com/vincentflagg): a coffee gets a key too, emailed to the address you use on Buy Me a Coffee. Paste the key in **Admin → Supporter license**; it covers everyone using that server, works offline and never expires.
 
 ## See it in action
 
