@@ -30,6 +30,12 @@ Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 
 <img src="videos/rotate.gif" alt="Rotating a model" width="720">
 
+**Your library at a glance**: every folder gets a card, with the picture you choose for it. The folder tree on the left shows the whole library.
+
+<img src="screenshots/folders.webp" alt="The first level of a library: folder cards with their own pictures, and the folder tree" width="880">
+
+Use the picture button on a folder's card (or **Picture** above the grid inside it) to upload a picture, or pick a picture or model thumbnail from inside the folder. Pictures are cropped to 4:3 and resized to **800 × 600**, the size a card uses, so upload pictures of that size for the sharpest result. Without a picture of its own, a folder shows one of its pictures or a model thumbnail.
+
 **Browse and search**: folders, series of related models, folder notes and live search.
 
 <img src="videos/browse.gif" alt="Browsing folders and searching" width="880">
@@ -55,7 +61,7 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
 - **Libraries.** Add as many folders as you like: shares on different volumes, USB drives and so on. Switch between them from the menu at the top of the sidebar.
 - **Sidebar.** A folder tree of the library (expand folders in place, the current one is highlighted) and the series in the current folder. Hide it with the button at the left of the top bar; on phones it opens as a drawer.
 - **Gallery.** A grid or list of every model, with folder navigation and search (by file name, display name, description or series). A slider sets the card size. Folders show a picture: a `cover`, `folder` or `preview` image inside them, else their first image (also from an `images/` sub-folder), else the thumbnail of the model chosen with **Use as the folder thumbnail** in the viewer, else the render of their first model. A folder's own picture always wins over a model thumbnail. A folder that only holds sub-folders (for example `Bird/With base` and `Bird/No base`) shows the picture of its first sub-folder that has one.
-- **Folder pictures.** Admins set any folder's picture with the picture button on its card (or **Picture** above the grid when inside it): upload one, or pick a picture or model thumbnail from inside the folder or its sub-folders. It is saved in the folder as `cover.jpg` (or `.png`, `.gif`, `.webp`), replacing an earlier `cover.*`; **Remove** deletes it and the folder goes back to the automatic picture.
+- **Folder pictures.** Admins set any folder's picture with the picture button on its card (or **Picture** above the grid when inside it): upload one, or pick a picture or model thumbnail from inside the folder or its sub-folders. It is cropped to 4:3, resized to 800 × 600 (never enlarged) and saved in the folder as `cover.webp` (a GIF stays `cover.gif`), replacing an earlier `cover.*`; **Remove** deletes it and the folder goes back to the automatic picture.
 - **Pictures and covers.** Images next to your models (PNG, JPG, WebP, GIF, AVIF) are used as covers: `benchy.jpg` becomes the cover of `benchy.stl`. In the viewer you can pick any picture in the folder as the cover, or go back to the 3D render. The viewer also shows a strip of the model's pictures (images named after it, and images named after no model, such as a download's `images/` folder); click one to open it full size. Large pictures get a small cached copy for the grid.
 - **Moving.** Admins drag a model, a series card or a folder onto a folder card, a folder in the sidebar tree or a breadcrumb link to move it there. A model takes its notes, cached thumbnail and same-name companions (an OBJ's `.mtl`, `benchy.jpg`, `benchy.txt`) along.
 - **Info panel.** A folder's `README.txt`, `notes.md` and other `.txt`/`.md` files show in a panel on the right (Markdown is formatted); a `files/` folder also shows the README of the folder above it. Notes named after a model (`benchy.txt`) show in that model's viewer panel. Admins can edit these files or add a `README.md` to any folder with **Add info**.
