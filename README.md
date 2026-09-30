@@ -190,7 +190,7 @@ Pull the new image and redeploy the project in Dockhand, Container Manager or Co
 | `ADMIN_PASSWORD`| unset            | Sets the admin password at startup (also resets a forgotten one). |
 | `SESSION_COOKIE_SECURE` | `false`  | Set to `true` when serving over HTTPS.                        |
 | `READ_ONLY`     | `false`          | `true` locks all changes (upload, delete, editing), even for the admin. |
-| `MAX_UPLOAD_MB` | `1024`           | Maximum size of an uploaded file.                             |
+| `MAX_UPLOAD_MB` | `1024`           | Maximum size of one uploaded file (folders are sent in parts, so their total size has no limit). |
 | `MAX_UNZIP_MB`  | `8192`           | Maximum unpacked size of an uploaded zip file.                |
 | `MAX_RENDER_MB` | `1024`           | Files larger than this are not rendered on the server.        |
 | `RENDER_GPU`    | `auto`           | `auto`, `off` (CPU only) or `force`.                          |
@@ -201,6 +201,13 @@ Pull the new image and redeploy the project in Dockhand, Container Manager or Co
 | `DATA_DIR`      | `/app/data`      | Settings (`config.json`), thumbnails and previews.            |
 
 Libraries, viewer defaults and the other settings are changed on the Admin page and stored in `/app/data/config.json`.
+
+## Logs and troubleshooting
+
+Open the container's log: **Logs** in Dockhand, Container Manager or Container Station, or `docker logs 3dviewer`. Each start (and automatic restart) prints the 3D Viewer logo and a checklist: web server, data folder, each library, network shares, thumbnail renderer (GPU or CPU), upload limits, admin password and supporter license. After that, one dated line per event: uploads (files, size, folder), unpacked zips, moves, deletes, new folders, library and settings changes, sign-ins, thumbnails made or failed, and every error with its reason.
+
+- **"Upload failed: the connection … was lost"**: the log says how far the upload got. Common causes: a reverse proxy in front of 3D Viewer with an upload size limit (in Nginx or Nginx Proxy Manager, set `client_max_body_size 0;` or a large value), or the network dropping. Files larger than `MAX_UPLOAD_MB` are refused before uploading.
+- **Uploading folders**: drag folders onto the page, or use **Upload → Upload a folder…**. The folder structure is kept.
 
 ## Notes
 
