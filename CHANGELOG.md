@@ -2,7 +2,10 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
-## Unreleased
+## 1.3.0 (2026-10-01)
+
+### New
+- **Thumbnails and previews on another disk**: set `CACHE_DIR` and add a volume for it in `docker-compose.yml`. At the next start the existing thumbnails and previews are moved there, so nothing is rendered again. The Admin page shows where they are stored, and the start-up checklist warns when the folder is not on a volume.
 
 ### Fixed
 - **Lychee scenes saved by older Lychee versions** (3.5.1 and before) no longer fail with "byte length of Uint32Array should be a multiple of 4". Their models open turned and placed as in Lychee, with their supports.

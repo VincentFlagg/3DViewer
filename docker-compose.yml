@@ -14,6 +14,8 @@ services:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
       - SESSION_COOKIE_SECURE=${SESSION_COOKIE_SECURE:-false}
       - READ_ONLY=${READ_ONLY:-false}
+      # Optional: keep thumbnails and previews on another disk (add its volume below).
+      # - CACHE_DIR=/cache
     # Lets the app mount SMB/NFS shares added on its Admin page. Remove these
     # lines if you only use shares connected in UGOS (/mnt/@remote).
     cap_add:
@@ -28,6 +30,8 @@ services:
     volumes:
       # App data: settings, libraries, thumbnail and preview cache.
       - /volume2/docker/3dviewer/data:/app/data
+      # Thumbnail and preview cache on another disk, with CACHE_DIR=/cache above:
+      # - /volume3/3dviewer-cache:/cache
       # Storage volumes, mounted at the same path as on the NAS.
       - /volume1:/volume1
       - /volume2:/volume2

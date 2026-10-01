@@ -200,6 +200,20 @@ Three limits protect a small NAS from files that are too big to handle. Change t
 
 The defaults fit almost every model: a 120 MB model uploads and gets a thumbnail without changing anything. Making a thumbnail needs roughly 3 to 5 times the file size in memory, so on a NAS with 4 GB of RAM keep the thumbnail limit at 1024 MB or less. The app log lists the limits in use at every start.
 
+## Thumbnail and preview cache
+
+Thumbnails and compressed previews are kept in the data folder (`/app/data/thumbs` and `/app/data/previews`). Previews of large libraries can take several GB. To keep them on another disk or share, add a volume for them and point `CACHE_DIR` to it in `docker-compose.yml`:
+
+```yaml
+    environment:
+      - CACHE_DIR=/cache
+    volumes:
+      - /volume2/docker/3dviewer/data:/app/data
+      - /volume3/3dviewer-cache:/cache
+```
+
+At the next start the thumbnails and previews already made are moved there (the log shows how many), so nothing has to be rendered again. Settings stay in the data folder. The Admin page (Thumbnails and previews → Stored in) shows the folder in use and its size. The start-up checklist warns when `CACHE_DIR` is not on a volume, because then the cache is lost when the container is recreated.
+
 ## Configuration
 
 | Variable        | Default          | Description                                                   |
@@ -219,12 +233,13 @@ The defaults fit almost every model: a 120 MB model uploads and gets a thumbnail
 | `AUTH_USER` / `AUTH_PASS` | unset  | Optional HTTP basic auth in front of the whole site.          |
 | `MODELS_DIR`    | unset            | Optional folder added as the first library on first start.    |
 | `DATA_DIR`      | `/app/data`      | Settings (`config.json`), thumbnails and previews.            |
+| `CACHE_DIR`     | `DATA_DIR`       | Thumbnails and previews, to keep them on another disk. See [Thumbnail and preview cache](#thumbnail-and-preview-cache). |
 
 Libraries, viewer defaults and the other settings are changed on the Admin page and stored in `/app/data/config.json`.
 
 ## Logs and troubleshooting
 
-Open the container's log: **Logs** in Dockhand, Container Manager or Container Station, or `docker logs 3dviewer`. Each start (and automatic restart) prints the 3D Viewer logo and a checklist: web server, data folder, each library, network shares, thumbnail renderer (GPU or CPU), upload limits, admin password and supporter license. After that, one dated line per event: uploads (files, size, folder), unpacked zips, moves, deletes, new folders, library and settings changes, sign-ins, thumbnails made or failed, and every error with its reason.
+Open the container's log: **Logs** in Dockhand, Container Manager or Container Station, or `docker logs 3dviewer`. Each start (and automatic restart) prints the 3D Viewer logo and a checklist: web server, data folder, cache folder (when `CACHE_DIR` is set), each library, network shares, thumbnail renderer (GPU or CPU), upload limits, admin password and supporter license. After that, one dated line per event: uploads (files, size, folder), unpacked zips, moves, deletes, new folders, library and settings changes, sign-ins, thumbnails made or failed, and every error with its reason.
 
 - **"Upload failed: the connection … was lost"**: the log says how far the upload got. Common causes: a reverse proxy in front of 3D Viewer with an upload size limit (in Nginx or Nginx Proxy Manager, set `client_max_body_size 0;` or a large value), or the network dropping. Files larger than the upload limit (Admin → Limits) are skipped before uploading, with a message.
 - **Uploading folders**: drag folders onto the page, or use **Upload → Upload a folder…**. The folder structure is kept.
