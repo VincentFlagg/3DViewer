@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.2.0 (2026-10-01)
+
+### New
+- **Size limits on the Admin page** (Admin → Limits): the largest file to upload, the largest unpacked .zip and the largest model to make a thumbnail for, in MB with the size in GB next to it. Changes apply at once, without a restart.
+- `MAX_UPLOAD_MB`, `MAX_UNZIP_MB` and `MAX_RENDER_MB` in docker-compose still work and win over the Admin page, where they show locked.
+- The startup log lists the limits in use; the README explains them under *Size limits*.
+
 ## 1.1.1 (2026-10-01)
 
 ### New

@@ -75,6 +75,7 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   - Libraries: add, rename, change the folder, reorder, remove.
   - Network shares: connect SMB/NFS shares on other NAS devices or computers and use them as libraries.
   - Thumbnails and previews: renderer status (GPU or CPU), queue, cache size, render missing, clear the cache.
+  - Limits: largest upload, largest unpacked .zip and largest model to make a thumbnail for (see [Size limits](#size-limits)).
   - Viewer defaults: model color, units (mm / in), which formats are Z-up, automatic grouping on or off.
   - Access: turn editing on or off, change the admin password.
 - **Viewing is open to everyone. Changes need the admin login:** upload, new folder, delete, and editing names, descriptions and groups.
@@ -187,6 +188,18 @@ Every version is listed on the [**Releases**](https://github.com/VincentFlagg/3D
 
 Pull the new image and redeploy the project in Dockhand, Container Manager or Container Station, or run `docker compose pull && docker compose up -d`, then hard-refresh your browser (Ctrl+Shift+R, or Cmd+Shift+R on a Mac). Your libraries, settings, notes and thumbnails are kept.
 
+## Size limits
+
+Three limits protect a small NAS from files that are too big to handle. Change them on the **Admin page → Limits** (no restart needed), or set them in `docker-compose.yml`. A value set in `docker-compose.yml` wins and shows locked on the Admin page. Sizes are in MB: 1024 MB = 1 GB.
+
+| Admin page | Variable | Default | What it limits |
+|---|---|---|---|
+| Largest file to upload | `MAX_UPLOAD_MB` | `1024` (1 GB) | One uploaded file. Folders are sent in parts, so their total size has no limit. |
+| Largest unpacked .zip | `MAX_UNZIP_MB` | `8192` (8 GB) | Everything inside one uploaded .zip together. A bigger zip is kept as it is, not unpacked. |
+| Largest model to make a thumbnail for | `MAX_RENDER_MB` | `1024` (1 GB) | Bigger models still open in the viewer, but get no server thumbnail. |
+
+The defaults fit almost every model: a 120 MB model uploads and gets a thumbnail without changing anything. Making a thumbnail needs roughly 3 to 5 times the file size in memory, so on a NAS with 4 GB of RAM keep the thumbnail limit at 1024 MB or less. The app log lists the limits in use at every start.
+
 ## Configuration
 
 | Variable        | Default          | Description                                                   |
@@ -197,9 +210,9 @@ Pull the new image and redeploy the project in Dockhand, Container Manager or Co
 | `ADMIN_PASSWORD`| unset            | Sets the admin password at startup (also resets a forgotten one). |
 | `SESSION_COOKIE_SECURE` | `false`  | Set to `true` when serving over HTTPS.                        |
 | `READ_ONLY`     | `false`          | `true` locks all changes (upload, delete, editing), even for the admin. |
-| `MAX_UPLOAD_MB` | `1024`           | Maximum size of one uploaded file (folders are sent in parts, so their total size has no limit). |
-| `MAX_UNZIP_MB`  | `8192`           | Maximum unpacked size of an uploaded zip file.                |
-| `MAX_RENDER_MB` | `1024`           | Files larger than this are not rendered on the server.        |
+| `MAX_UPLOAD_MB` | `1024`           | Largest uploaded file in MB. Also on the Admin page; see [Size limits](#size-limits). |
+| `MAX_UNZIP_MB`  | `8192`           | Largest unpacked .zip in MB. Also on the Admin page; see [Size limits](#size-limits). |
+| `MAX_RENDER_MB` | `1024`           | Largest model in MB that gets a server thumbnail. Also on the Admin page; see [Size limits](#size-limits). |
 | `RENDER_GPU`    | `auto`           | `auto`, `off` (CPU only) or `force`.                          |
 | `DISABLE_SERVER_RENDER` | `false`  | Turns off the server renderer completely; browsers render thumbnails instead. |
 | `DISABLE_REMOTE_MOUNTS` | `false`  | Turns off the root mount helper (no Network shares on the Admin page). |
@@ -213,7 +226,7 @@ Libraries, viewer defaults and the other settings are changed on the Admin page 
 
 Open the container's log: **Logs** in Dockhand, Container Manager or Container Station, or `docker logs 3dviewer`. Each start (and automatic restart) prints the 3D Viewer logo and a checklist: web server, data folder, each library, network shares, thumbnail renderer (GPU or CPU), upload limits, admin password and supporter license. After that, one dated line per event: uploads (files, size, folder), unpacked zips, moves, deletes, new folders, library and settings changes, sign-ins, thumbnails made or failed, and every error with its reason.
 
-- **"Upload failed: the connection … was lost"**: the log says how far the upload got. Common causes: a reverse proxy in front of 3D Viewer with an upload size limit (in Nginx or Nginx Proxy Manager, set `client_max_body_size 0;` or a large value), or the network dropping. Files larger than `MAX_UPLOAD_MB` are refused before uploading.
+- **"Upload failed: the connection … was lost"**: the log says how far the upload got. Common causes: a reverse proxy in front of 3D Viewer with an upload size limit (in Nginx or Nginx Proxy Manager, set `client_max_body_size 0;` or a large value), or the network dropping. Files larger than the upload limit (Admin → Limits) are skipped before uploading, with a message.
 - **Uploading folders**: drag folders onto the page, or use **Upload → Upload a folder…**. The folder structure is kept.
 
 ## Notes
