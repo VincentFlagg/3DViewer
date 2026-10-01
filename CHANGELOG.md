@@ -2,6 +2,18 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.4.0 (2026-10-01)
+
+### New
+- **Select several models**: **Select** above the grid (or Ctrl/Cmd+click a card), click to pick, Shift+click for a range, **Select all**. A bar at the bottom shows the count and size.
+- **Download several files as one .zip** (for everyone). OBJ and GLTF models bring their `.mtl`, textures and `.bin` files. The zip is streamed, so big selections work. One plain file downloads as it is.
+- **Move between libraries**: drag onto another library in the sidebar (listed while dragging), or use **Move to…** (folder cards, viewer, selection bar) with a library and folder picker. Moves to another disk or share are copied, then deleted, with a progress bar. Notes, orientation and thumbnails go along. You are asked before replacing a file with the same name.
+- **Trash**: deleted files and folders (folders with everything in them, too) go to a hidden `.3dviewer-trash` folder in their library. **Admin → Trash** restores them where they were or deletes them for good. Items are kept 30 days by default (Admin setting; 0 = until emptied).
+- **G-code (.gcode) and Prusa binary G-code (.bgcode)**: toolpaths coloured by feature with a legend, a layer slider, travel moves on request, and print time, filament, layer height and slicer in the panel. Thumbnails use the preview picture saved by the slicer.
+
+### Changed
+- Deleting a non-empty folder is now possible (it goes to the trash). Deleting asks for confirmation and says how long the item can be restored.
+
 ## 1.3.0 (2026-10-01)
 
 ### New
