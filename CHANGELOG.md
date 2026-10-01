@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.4.4 (2026-10-01)
+
+### New
+- **Admin → Viewer defaults → Show ZBrush files (.ztl, .zpr) in the gallery**: on by default; untick it to hide them.
+
 ## 1.4.3 (2026-10-01)
 
 ### New
