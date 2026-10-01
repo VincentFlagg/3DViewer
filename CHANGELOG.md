@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## Unreleased
+
+### Fixed
+- **Lychee scenes saved by older Lychee versions** (3.5.1 and before) no longer fail with "byte length of Uint32Array should be a multiple of 4". Their models open turned and placed as in Lychee, with their supports.
+
 ## 1.2.0 (2026-10-01)
 
 ### New

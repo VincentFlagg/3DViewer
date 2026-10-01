@@ -233,6 +233,7 @@ Open the container's log: **Logs** in Dockhand, Container Manager or Container S
 
 - Every format opens Z-up by default. You can change this on the Admin page, per model in the viewer toolbar, or save a model's orientation in the viewer.
 - Lychee supports are rebuilt from the scene's settings, so they look close to Lychee's but are not an exact copy. To print, open the `.lys` in Lychee Slicer.
+- Scenes from older Lychee versions (3.5.1 and before) open too.
 - Dimensions assume the model is in millimetres, as is standard for 3D printing. Choose inches on the Admin page to convert them.
 - For OBJ files, the matching `.mtl` file and any textures must be in the same folder, as the OBJ's `mtllib` line names them. GLTF files need their `.bin` and texture files in the same way.
 - Files and folders whose names start with `.` or `@` are hidden, which also hides NAS system folders such as `@eaDir`. `#recycle` folders are hidden too.
