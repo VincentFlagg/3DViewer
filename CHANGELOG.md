@@ -2,6 +2,12 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.4.1 (2026-10-01)
+
+### Changed
+- **G-code looks like the print**: toolpaths are drawn as solid, shaded strands with the width and height of each printed line, instead of thin lines whose colours blended together. Thumbnails of G-code without a saved picture use the same look.
+- New in the viewer panel for G-code: **Solid** / **Lines** (very large files open as lines), **By feature** / **One colour**, and a tick box per feature to hide it (all shown when a file opens). Solid/Lines and the colour choice are remembered in the browser.
+
 ## 1.4.0 (2026-10-01)
 
 ### New
