@@ -5,7 +5,7 @@
 <h1 align="center">3D Viewer</h1>
 
 <p align="center"><b>Browse, preview and organise the 3D models on your NAS or server, from any device.</b><br>
-Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX · Free<br>
+Self-hosted with Docker · STL, 3MF, OBJ, PLY, GLB/GLTF, FBX, Lychee (.lys) · Free<br>
 Tested on <b>UGREEN</b>, <b>Synology</b> and <b>QNAP</b> NAS</p>
 
 <p align="center">
@@ -67,6 +67,7 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
 - **Info panel.** A folder's `README.txt`, `notes.md` and other `.txt`/`.md` files show in a panel on the right (Markdown is formatted); a `files/` folder also shows the README of the folder above it. Notes named after a model (`benchy.txt`) show in that model's viewer panel. Admins can edit these files or add a `README.md` to any folder with **Add info**.
 - **Zip files.** Uploading a `.zip` unpacks it into a new folder named after it (a single top-level folder inside the zip is dropped) and removes the zip. A zip that cannot be unpacked is kept as it is.
 - **Viewer.** Models open Z-up, seen from the front; thumbnails use the same view. If a model still lies on its side or faces away, admins turn it with **Tilt**, **Turn** and **Roll** (quarter turns) in the viewer panel and **Save orientation**: it then always opens that way and its thumbnail is rendered again. The orientation is stored in the model's `.3dviewer` metadata; the model file itself is never changed. Orbit, pan and zoom, with a Z-up toggle, wireframe, a ground grid and reset view. It shows dimensions and the triangle count.
+- **Lychee Slicer scenes (.lys).** Supported resin prints open with all their models placed as in Lychee, and their supports rebuilt as light-grey struts, pads and braces. The **Supports** button in the viewer hides them to see the model alone; thumbnails show the supported scene.
 - **Series / groups.** Models whose names share a first word (`Dragon_head.stl`, `Dragon_body.stl`, `dragon-wing-L.stl`) are grouped into one stacked card automatically. You can rename a group, ungroup it, move a model into any group (one click opens a searchable list of the folder's groups, where you can also type a new name), or exclude a model from grouping. To choose which model's picture a series card shows, open that model and click **Use as the series thumbnail**.
 - **Fast thumbnails and previews.** The server renders every thumbnail in the background with a headless browser, on the GPU when one is passed to the container and on the CPU otherwise. Large models also get a compressed preview (welded and meshopt-compressed GLB, often 10–20× smaller) that the viewer loads instead of the original. Downloads always give you the original file.
 - **Themes.** Pick a colour theme from the palette menu in the top bar: Auto (follows your system's light/dark setting), Classic light, Classic dark, the pastel Mint, Lavender, Peach and Sky themes, or Dusk (pastel accents on a dark background). The choice is saved in your browser.
@@ -218,6 +219,7 @@ Open the container's log: **Logs** in Dockhand, Container Manager or Container S
 ## Notes
 
 - Every format opens Z-up by default. You can change this on the Admin page, per model in the viewer toolbar, or save a model's orientation in the viewer.
+- Lychee supports are rebuilt from the scene's settings, so they look close to Lychee's but are not an exact copy. To print, open the `.lys` in Lychee Slicer.
 - Dimensions assume the model is in millimetres, as is standard for 3D printing. Choose inches on the Admin page to convert them.
 - For OBJ files, the matching `.mtl` file and any textures must be in the same folder, as the OBJ's `mtllib` line names them. GLTF files need their `.bin` and texture files in the same way.
 - Files and folders whose names start with `.` or `@` are hidden, which also hides NAS system folders such as `@eaDir`. `#recycle` folders are hidden too.
