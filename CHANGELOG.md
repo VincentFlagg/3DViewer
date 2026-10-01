@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.5.0 (2026-10-01)
+
+### New
+- **Unpack zips already in a library**: a zip with 3D models inside shows as a card with **Unpack** (admin). It is unpacked like an uploaded zip, into a new folder named after it, and the zip goes to the trash. **Admin → Libraries → Unpack zips** unpacks every zip with models in a library, sub-folders included. Zips without models are left alone and not shown.
+- **123D Catch projects (.3dp)** are listed like ZBrush files, with a 123D Catch icon (download, move, delete; no 3D preview). The Admin switch is now **Show ZBrush and 123D Catch files**.
+- **Folders can be selected**: folder cards have a tick box in select mode, and **Select all** includes them. **Download** zips a whole folder with everything in it (no size limit); **Move to…** and **Delete** (to the trash) work on folders too.
+
 ## 1.4.4 (2026-10-01)
 
 ### New
