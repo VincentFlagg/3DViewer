@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.1.1 (2026-10-01)
+
+### New
+- **Lychee Slicer scenes (`.lys`)**: supported resin prints open with all their models placed as in Lychee, and their supports rebuilt as light-grey struts, pads and braces. A **Supports** button in the viewer hides them; thumbnails show the supported scene.
+- Scenes whose models are not saved in the file (Lychee's own sample models) show Lychee's preview picture, as the thumbnail and in the viewer, with a note.
+- The README shows a library overview with folder pictures.
+
 ## 1.1.0 (2026-09-30)
 
 ### New
