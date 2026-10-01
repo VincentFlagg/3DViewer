@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.4.2 (2026-10-01)
+
+### Changed
+- **Labelled dimensions** in the viewer panel: W (width, left to right) × D (depth, front to back) × H (height, bottom to top), as the model stands in the viewer. The height is always the last number, also with Z-up turned off.
+
 ## 1.4.1 (2026-10-01)
 
 ### Changed

@@ -256,7 +256,7 @@ Open the container's log: **Logs** in Dockhand, Container Manager or Container S
 - Lychee supports are rebuilt from the scene's settings, so they look close to Lychee's but are not an exact copy. To print, open the `.lys` in Lychee Slicer.
 - Scenes from older Lychee versions (3.5.1 and before) open too.
 - G-code features (for the colours and the tick boxes) are read from the slicer's comments (`;TYPE:` in PrusaSlicer, OrcaSlicer and Cura, `; FEATURE:` in Bambu Studio); G-code without them is drawn in one colour.
-- Dimensions assume the model is in millimetres, as is standard for 3D printing. Choose inches on the Admin page to convert them.
+- Dimensions are shown as **W** (width, left to right) × **D** (depth, front to back) × **H** (height, bottom to top), as the model stands in the viewer. They assume the model is in millimetres, as is standard for 3D printing. Choose inches on the Admin page to convert them.
 - For OBJ files, the matching `.mtl` file and any textures must be in the same folder, as the OBJ's `mtllib` line names them. GLTF files need their `.bin` and texture files in the same way.
 - Files and folders whose names start with `.` or `@` are hidden, which also hides NAS system folders such as `@eaDir`. `#recycle` folders are hidden too.
 
