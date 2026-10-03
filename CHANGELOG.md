@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.6.0 (2026-10-03)
+
+### New
+- **Rename folders** (admin): the pencil button on a folder card, or **Rename** above the grid for the current folder. Models inside keep their notes, orientation, thumbnails and previews.
+- **New folder in Move to…**: create a folder where you are in the picker (in any library) and move into it in one go.
+- **Folder cards show what they hold**, sub-folders included: for example **12 folders · 10 models · 35 files**. The counts are worked out in the background and remembered, so big libraries still open fast.
+
 ## 1.5.0 (2026-10-01)
 
 ### New
