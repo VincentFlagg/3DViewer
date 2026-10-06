@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.7.2 (2026-10-06)
+
+### Changed
+- The folder title, its tools (Select, Picture, Rename, Add info, card size, Grid/List) and the upload/unzip progress bar stay pinned under the top bar while you scroll.
+
 ## 1.7.1 (2026-10-06)
 
 ### New
