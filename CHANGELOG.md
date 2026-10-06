@@ -2,6 +2,14 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.7.1 (2026-10-06)
+
+### New
+- **Thumbnails with the sun**: **Use this view** with the sun lamp on saves its direction and shadows too, and the thumbnail is rendered with them. **Front view** goes back to the front with even light.
+
+### Fixed
+- A thumbnail that was being rendered while its orientation or view was saved could be kept with the old setting. It is now rendered again.
+
 ## 1.7.0 (2026-10-06)
 
 ### New
