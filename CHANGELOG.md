@@ -2,6 +2,17 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.7.0 (2026-10-06)
+
+### New
+- **Sun lamp** in the viewer (**Light → Sun lamp**): one strong light with shadows on the model and the floor. **Front**, **Left**, **Right**, **Back**, **Top**, or any direction with **Around** and **Height**. Remembered in your browser.
+- **Use this view** (admin): turn the view to any angle and use it for the model's thumbnail; the model also opens from it. **Front view** goes back.
+- **Unpack several zips**: select zips and click **Unpack** in the selection bar; they are unpacked one after another.
+
+### Fixed
+- **One zip at a time**: clicking **Unpack** twice (or two admins at once) could unpack the same zip twice. Now only one zip is unpacked at a time; the others wait.
+- The tick box of a selected card was hidden behind its picture.
+
 ## 1.6.0 (2026-10-03)
 
 ### New
