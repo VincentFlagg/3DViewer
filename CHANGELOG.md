@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.8.0 (2026-10-07)
+
+### New
+- **Blender files (.blend)** are listed in the gallery with the preview picture Blender saves inside them (also from compressed files), or a Blender icon when there is none. Download, select, move and delete them like models; there is no 3D view. The Admin switch is now **Show ZBrush, 123D Catch and Blender files**.
+
 ## 1.7.2 (2026-10-06)
 
 ### Changed
