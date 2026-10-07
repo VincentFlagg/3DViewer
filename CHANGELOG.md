@@ -2,6 +2,14 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.8.5 (2026-10-07)
+
+### New
+- **Blender files in 3D**: `.blend` files are now shown as models, with a thumbnail. 3D Viewer reads the meshes stored in the file (Blender 2.8 to 4.x, also compressed): the objects of the scene with their material colours or packed base colour textures, copies made by particle systems (trees, grass) and instanced collections. A colour ramp in a material (leaves by season) gives each copy its own colour. Modifiers, geometry nodes, curves and text are not shown; a file without a mesh shows the preview picture Blender saved in it.
+
+### Changed
+- Blender files are no longer listed with ZBrush and 123D Catch files: the Admin switch is back to **Show ZBrush and 123D Catch files**.
+
 ## 1.8.0 (2026-10-07)
 
 ### New
