@@ -2,6 +2,20 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.0.0 (2026-10-11)
+
+### New
+- **Accounts**: the admin adds accounts on the Admin page; people sign in on the main page (person button at the top). Accounts can look and download; only the admin changes the library. Each account can change its own password.
+- **Private server**: Admin → Accounts → Private shows the libraries only to signed-in accounts and the admin.
+- **Favourites, tags and a print log** for each account (and the admin): ☆ Favourite and tags under **Mine** in the viewer, and **+ Add a print** with date, filament, notes and a photo. The sidebar lists My favourites, My prints and each tag across all libraries; **Show** filters a folder by them.
+- **Recently added**: the newest models of all libraries, in the sidebar.
+- **Compare**: select two models and click **Compare** to see them side by side at the same scale.
+- **Print bed**: a printer's build volume around the model (many Bambu Lab, Prusa, Creality, Elegoo, Anycubic, Voron and resin printers, or a custom size), and whether the model fits.
+- **New formats**: STEP and IGES (CAD, with their colours), 3DS, COLLADA (.dae) and USD (.usdz, .usd, .usda, .usdc). STEP files can also be opened in the slicer.
+- **Scan schedule** (Admin → Thumbnails): look through the libraries for new files every 1, 3, 6 or 12 hours, or once a day at a set time.
+- **Duplicates** (Admin): finds models stored more than once, in any folder or library, and sends the extra copies to the trash.
+- **Backup** (Admin): one file with all settings, accounts and their marks, and restore from it.
+
 ## 1.8.6 (2026-10-11)
 
 ### New
