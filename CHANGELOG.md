@@ -2,6 +2,19 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 1.8.6 (2026-10-11)
+
+### New
+- **Measure** in the viewer: click two points on the model for the distance between them (and its width, depth and height parts).
+- **Cross-section** in the viewer: cut through the model across its height, width or depth with a slider; the cut face shows in red.
+- **Screenshot** of the viewer: WebP (smallest file, the default), JPG or PNG.
+- **Open in slicer**: opens STL, 3MF, OBJ and PLY files in Bambu Studio, OrcaSlicer, PrusaSlicer or UltiMaker Cura.
+- **Sort by** name, date, size or type, and **Show** folders only, models only, models without a thumbnail or one file type.
+- **Admin → Storage**: space used by thumbnails, previews and the trash, and the free space of the cache, the data folder and each library, with a warning when one is almost full.
+
+### Fixed
+- A cache folder (`CACHE_DIR`) that runs out of space or quota ("Unknown system error -122") no longer fills the log with one line per file or stops thumbnails. Moving stops at the first file that does not fit, and the files left behind are still used from the data folder. While the cache is full, new thumbnails go to the data folder and previews are skipped, and a thumbnail is saved even when its preview cannot be. The start-up checklist shows the cache's free space.
+
 ## 1.8.5 (2026-10-07)
 
 ### New
