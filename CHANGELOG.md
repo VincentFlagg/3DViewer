@@ -2,6 +2,12 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.0.1 (2026-10-11)
+
+### New
+- **Snapping for Measure**: points snap to corners, borders, the middle of a border, the centre of a flat face, the centre of the model or of its base, or nowhere. **Auto** (the default) picks a corner, the middle of a border or a border, whichever is close. A ring shows where a click will land.
+- **Open in Creality Print** (version 6 or later).
+
 ## 2.0.0 (2026-10-11)
 
 ### New
