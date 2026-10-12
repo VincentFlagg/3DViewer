@@ -2,6 +2,12 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.5 (2026-10-12)
+
+### New
+- **Folder picture** full-size preview: **arrows** (and the ← → keys, or a swipe on phones) step through the folder's pictures and model thumbnails.
+- The **4:3 frame** can be edited: drag it to choose the part that is saved, drag its corners to make it bigger or smaller (it stays 4:3). **Reset frame** centres it again. Each picture keeps its frame while you step through them, and the small preview shows it. GIFs keep a fixed frame, as they are saved as they are.
+
 ## 2.1.4 (2026-10-12)
 
 ### New
