@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.4 (2026-10-12)
+
+### New
+- **Folder picture** full-size preview: **View full size**, or a click on the preview, shows the whole picture with a frame on the 4:3 part the folder card keeps. **X**, Esc or a click beside the picture closes it; **Use this picture** saves it from there.
+
 ## 2.1.3 (2026-10-12)
 
 ### Changed
