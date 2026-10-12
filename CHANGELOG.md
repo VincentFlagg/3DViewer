@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.3 (2026-10-12)
+
+### Changed
+- **Folder picture** previews your choice before saving it. Clicking a picture or model thumbnail, or uploading a picture, shows it in the dialog cropped to 4:3 as the folder card will show it; **Use this picture** saves it, **Cancel** (or Esc) goes back.
+
 ## 2.1.2 (2026-10-12)
 
 ### Fixed
