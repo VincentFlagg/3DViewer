@@ -2,6 +2,15 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.0 (2026-10-12)
+
+### New
+- **RAR, 7z, TAR and compressed files** are unpacked like zips: on upload, with **Unpack** on their card, from the selection bar and with **Admin → Libraries → Unpack archives**. RAR4/RAR5, split RAR and 7z archives, `.tar`, `.tar.gz`, `.tar.xz`, `.tar.bz2`, and single files like `model.stl.gz`.
+- **Archives with a password** (RAR, 7z and zip): **Unpack** asks for the password. It is not kept.
+
+### Changed
+- Admin → Limits: **Largest unpacked archive** (was "Largest unpacked .zip"), for every kind of archive.
+
 ## 2.0.1 (2026-10-11)
 
 ### New
