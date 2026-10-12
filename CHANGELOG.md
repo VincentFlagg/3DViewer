@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.7 (2026-10-12)
+
+### New
+- **Folder picture: Fill or Fit whole picture.** Fill (the default) crops the picture to the 4:3 card with the frame, as before. **Fit whole picture** keeps the whole picture, shrunk to fit the card, and fills the empty sides with **Black** or **White** borders. The switch is in the dialog and in the full-size preview, and the previews show the card exactly as it will be saved. GIFs keep Fill, as they are saved as they are.
+
 ## 2.1.6 (2026-10-12)
 
 ### New
