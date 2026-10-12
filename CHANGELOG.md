@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.1 (2026-10-12)
+
+### Fixed
+- Unpacking an archive whose name ends in a dot before the extension (for example `Iron Giant..7z`) failed on network shares with "ENOTDIR: not a directory". Names of new folders and files no longer end in a dot or a space, which Windows and SMB shares cannot store: the folder is now called `Iron Giant`.
+
 ## 2.1.0 (2026-10-12)
 
 ### New
