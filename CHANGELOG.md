@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.6 (2026-10-12)
+
+### New
+- **Folder picture** full-size preview: **Fit to screen** and **Actual size**. Fit to screen (the default) enlarges small pictures and model thumbnails and shrinks big ones so the whole picture fills the screen. Actual size shows it at 100 %, starting at the frame; scroll, or drag beside the frame, to look around. The choice stays while you step through the pictures.
+
 ## 2.1.5 (2026-10-12)
 
 ### New
