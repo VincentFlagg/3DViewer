@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 2.1.2 (2026-10-12)
+
+### Fixed
+- Dockhand's release-notes icon opened the releases of a private repository. The image now carries Dockhand's `dockhand.changelog.url` label, so the icon opens the [3D Viewer releases](https://github.com/VincentFlagg/3DViewer/releases).
+
 ## 2.1.1 (2026-10-12)
 
 ### Fixed
