@@ -2,6 +2,19 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 3.0.0 (2026-10-13)
+
+### New
+- **Wall thickness**: the whole model coloured by wall thickness (red below a thickness you choose, 0.8 mm by default, then orange, yellow, green and blue), with the thinnest spots labelled. Runs in the background with progress.
+- **Overhangs**: faces that will need supports shown in red, with an adjustable overhang angle and how much of the surface needs supports.
+- **Mesh check**: open edges, non-manifold edges and flipped faces, highlighted and counted, with the number of separate parts.
+- **Weight & cost**: volume, plastic used, weight, filament length and cost for PLA, PETG, ABS, ASA, TPU, Nylon, PC, PLA-CF and resin, with infill, wall count and 1.75 / 2.85 mm filament. Prices per kg and the currency are set in **Admin → Print cost**; each person can override a price.
+- **Measure**: **Circle** through three points (radius, diameter, centre) and **Angle** (three points), next to **Distance**, which now shows ΔX, ΔY and ΔZ.
+- **Cross-section**: type the exact cut height (or distance from the left side or front); the cut face is hatched.
+
+### Fixed
+- The cross-section's red cut face was hidden behind the model's own inside faces; it shows again.
+
 ## 2.1.7 (2026-10-12)
 
 ### New
