@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 3.0.2 (2026-10-18)
+
+### Changed
+- **Search:** a matching folder shows its folder picture, or without one a 2×2 collage of the models in it (its own models first, then those in its sub-folders), instead of a plain folder icon.
+
 ## 3.0.1 (2026-10-17)
 
 ### Changed
