@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 3.1.1 (2026-10-23)
+
+### New
+- **Ideas and bug reports** card on the Admin page, with links to suggest or vote on ideas, request a feature or report a bug on the public GitHub page.
+
 ## 3.1.0 (2026-10-23)
 
 ### New

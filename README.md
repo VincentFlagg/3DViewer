@@ -143,6 +143,15 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
       └── benchy.stl.json   { "title": "...", "description": "...", "group": "..." }
   ```
 
+## 💡 Ideas and bug reports
+
+- **Have an idea?** Post it in [Ideas](https://github.com/VincentFlagg/3DViewer/discussions/categories/ideas), or 👍 an idea that is already there: the most wanted ones are built first.
+- **Found a bug?** [Report it](https://github.com/VincentFlagg/3DViewer/issues/new?template=bug_report.yml) with your 3D Viewer version and NAS; a screenshot or the model that fails helps a lot.
+- **A specific feature request?** [Open a feature request](https://github.com/VincentFlagg/3DViewer/issues/new?template=feature_request.yml).
+- **A question on setting it up?** Ask in [Discussions](https://github.com/VincentFlagg/3DViewer/discussions).
+
+You need a free GitHub account to post. The Admin page has the same links under **Ideas and bug reports**.
+
 ## Tested platforms
 
 3D Viewer is tested on the following NAS systems. It also runs on any Linux server or PC with Docker (amd64 or arm64).
