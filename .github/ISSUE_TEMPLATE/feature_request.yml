@@ -1,0 +1,35 @@
+name: Feature request
+description: Suggest something new or better in 3D Viewer
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea! Please look through the [open issues](https://github.com/VincentFlagg/3DViewer/issues) and [Ideas](https://github.com/VincentFlagg/3DViewer/discussions/categories/ideas) first; if it is there already, add a 👍 to it instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you like?
+      description: Describe the feature or change.
+      placeholder: e.g. "Show the print time from a 3MF's G-code in the viewer"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why? What would it help you do?
+      description: The problem it solves, or how you would use it.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: Ideas on how it could work (optional)
+      description: Where it would go in the app, how it would look. Screenshots or sketches are welcome.
+  - type: input
+    id: version
+    attributes:
+      label: 3D Viewer version
+      description: Shown in the container log at start, or the image tag you run.
+      placeholder: e.g. 3.1.0

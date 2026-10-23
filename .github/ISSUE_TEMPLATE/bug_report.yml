@@ -1,0 +1,49 @@
+name: Bug report
+description: Something does not work as it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to see it
+      placeholder: |
+        1. Open a folder with …
+        2. Click …
+        3. …
+  - type: input
+    id: version
+    attributes:
+      label: 3D Viewer version
+      description: Shown in the container log at start, or the image tag you run.
+      placeholder: e.g. 3.1.0
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: NAS or server
+      placeholder: e.g. UGREEN DXP4800 Plus (UGOS), Synology DS923+, Unraid, Docker on Ubuntu
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: e.g. Chrome on Windows, Safari on iPhone
+  - type: textarea
+    id: logs
+    attributes:
+      label: Container log (optional)
+      description: The lines around the problem from the container's log (Logs in Dockhand, Container Manager or Container Station, or `docker logs 3dviewer`). Remove anything private.
+      render: text
+  - type: textarea
+    id: files
+    attributes:
+      label: Screenshots or a model that shows it (optional)
+      description: Drag files here. If a model fails to load, a link to it (or the file in a .zip) helps a lot.
