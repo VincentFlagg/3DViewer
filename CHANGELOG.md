@@ -2,6 +2,16 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 3.1.0 (2026-10-23)
+
+### New
+- **Export** (viewer → Tools): download the model as STL, 3MF or OBJ, standing on the bed as shown, scaled by % or to a height in mm. **Repair** closes holes, turns flipped faces and removes empty or doubled faces. Admins can save the result as a copy next to the original.
+- **Lay flat on a face** and **Auto-orient for printing** (viewer → Orientation): click the face to print on, or let it find the position with the fewest supports.
+- **View in AR** on phones and tablets: the model at its real size on your table (AR Quick Look on iPhone and iPad, Scene Viewer on Android).
+- **Share links**: a link to a model or a folder for 1, 7 or 30 days or until removed. Anyone with it can view and download only that, also on a private server. Listed and removable in the dialog and in Admin → Share links.
+- **Import from link**: paste a Printables, Thingiverse or MakerWorld page, or a link to a file, and it is downloaded into the open folder with its pictures and description. Thingiverse needs an app token (Admin → Import from link).
+- **Compare**: **Compare with…** in the viewer picks the second model from the folder or by search, and **Overlay** shows the two models on top of each other in two colours.
+
 ## 3.0.2 (2026-10-18)
 
 ### Changed
