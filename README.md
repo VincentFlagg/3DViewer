@@ -107,6 +107,7 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   Blender files are shown Z-up, in Blender units as millimetres.
 - **Series / groups.** Models whose names share a first word (`Dragon_head.stl`, `Dragon_body.stl`, `dragon-wing-L.stl`) are grouped into one stacked card automatically. You can rename a group, ungroup it, move a model into any group (one click opens a searchable list of the folder's groups, where you can also type a new name), or exclude a model from grouping. To choose which model's picture a series card shows, open that model and click **Use as the series thumbnail**.
 - **Fast thumbnails and previews.** The server renders every thumbnail in the background with a headless browser, on the GPU when one is passed to the container and on the CPU otherwise. Large models also get a compressed preview (welded and meshopt-compressed GLB, often 10–20× smaller) that the viewer loads instead of the original. Downloads always give you the original file.
+- **Install as an app.** **Install app** (the phone icon at the top) installs 3D Viewer on a computer, phone or tablet: it gets its own icon on the desktop, dock or home screen and opens in its own window, without the browser's bars. Where the browser cannot install it from the page, the button explains how: on iPhone and iPad, Share → **Add to Home Screen** (works over http too); Chrome, Edge and Android only install apps from an **https://** address, so open 3D Viewer through your NAS's reverse proxy with a certificate, Tailscale or a tunnel (on a computer, Chrome's **Create shortcut… → Open as window** also works over http). The icon is a shaded 3D cube or a flat 2D one (**Admin → Install as an app**); the browser tab and the logo use it too. When the server cannot be reached, the app shows a short message instead of an error page.
 - **Themes.** Pick a colour theme from the palette menu in the top bar: Auto (follows your system's light/dark setting), Classic light, Classic dark, the pastel Mint, Lavender, Peach and Sky themes, or Dusk (pastel accents on a dark background). The choice is saved in your browser.
 - **Admin page** (`/admin`, password protected):
   - Libraries: add, rename, change the folder, reorder, remove, unpack every zip with models.
@@ -116,6 +117,7 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   - Limits: largest upload, largest unpacked .zip and largest model to make a thumbnail for (see [Size limits](#size-limits)).
   - Trash: restore deleted files and folders, delete them for good, empty the trash, and how many days deleted items are kept.
   - Viewer defaults: model color, units (mm / in), which formats are Z-up, automatic grouping on or off, ZBrush and 123D Catch files shown or hidden.
+  - Install as an app: the app icon (3D or 2D).
   - Import from link: the Thingiverse app token.
   - Share links: every link that works, who made it and until when, with **Remove**.
   - Duplicates: finds models stored more than once, in any folder or library (the same contents, whatever their names), with **Keep only this one** and **Delete** to send extra copies to the trash.

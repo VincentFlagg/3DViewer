@@ -2,6 +2,12 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 3.2.0 (2026-10-24)
+
+### New
+- **Install as an app**: **Install app** at the top installs 3D Viewer on a computer, phone or tablet, with its own icon and window. Where the browser cannot install it from the page (iPhone, or plain http on Chrome/Edge/Android), the button explains how.
+- **App icon**: a shaded 3D cube or a flat 2D one, chosen in **Admin → Install as an app**; the browser tab, the logo and the supporter screen use it too.
+
 ## 3.1.1 (2026-10-23)
 
 ### New
