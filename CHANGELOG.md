@@ -2,6 +2,15 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.0.1 (2026-10-26)
+
+### Changed
+- **Admin page in tabs**: the settings are grouped into Library, Accounts, Printing, Viewer, Thumbnails, Notifications, Backup and Support & ideas, one at a time, instead of one long page. On a phone the tabs are a row at the top. `/admin#printing` (and so on) opens a tab directly, and the arrow keys move between tabs.
+- Tidier forms on the Admin page: all fields look alike and fit narrow screens.
+
+### Security
+- Updated body-parser, multer and zod to fix three denial-of-service issues (oversized or unusual requests could tie up the server).
+
 ## 4.0.0 (2026-10-25)
 
 ### New
