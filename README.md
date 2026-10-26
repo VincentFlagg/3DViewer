@@ -123,6 +123,12 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   - Duplicates: finds models stored more than once, in any folder or library (the same contents, whatever their names), with **Keep only this one** and **Delete** to send extra copies to the trash.
   - Accounts: add accounts, give them a new password or remove them, and make the server private.
   - Backup: download one file with all the settings (libraries, shares, settings, admin password, accounts with their favourites, tags and print logs, supporter key) and restore from it, for example on a new NAS.
+  - Accounts: also **Can print** for each account, two-factor sign-in (required for everyone or not; **Reset 2FA** for an account that lost its phone).
+  - Single sign-on: an OpenID Connect provider (issuer URL, client ID and secret), and whether accounts are made on first sign-in.
+  - Notifications: what to send a message about, the public address used in links, and the Telegram, Discord, e-mail, ntfy and Gotify settings.
+  - Printers: add, change, test and remove the printers that sliced files can be sent to.
+  - API tokens: every token people made, with **Remove**.
+  - Automatic backups: on or off, every day or week, at what time, how many to keep, and the folder.
   - Access: turn editing on or off, change the admin password.
 - **Accounts.** The admin adds accounts on the Admin page. People sign in with the person button at the top of the main page and get their own:
   - **Favourites**: ☆ **Favourite** in the viewer; a star on the card;
@@ -136,6 +142,25 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   - a link straight to a file (.stl, .3mf, .zip…): saved in the folder, archives unpacked like an upload.
   The server downloads it in the background (the dialog shows the progress), with the upload size limit per file. Accounts cannot import from addresses on the local network; the admin can. Sites change how they answer from time to time; when one does, the error says to download there and upload instead.
 - **Recently added.** In the sidebar for everyone: the newest models of all libraries, by the date of the file.
+- **Statistics.** Signed-in accounts and the admin open **Statistics** in the sidebar: how many models and how much space, models added and opened and prints logged per month (as bar charts, each also as a table), models by type and by library, the largest models, and the most opened and most printed ones.
+- **To print.** A shared list of what to print next, for signed-in accounts that may print (the admin chooses who, see below). **+ To print** in the viewer adds a model with how many copies, the material and a note; the list in the sidebar (with a count) can be reordered, **Printed ✓** counts one copy off and adds it to your print log, and sliced files can be sent to a printer from it.
+- **Send to printer.** Sliced files (G-code, `.bgcode` or a sliced 3MF) can be sent to a 3D printer on your network from the viewer or the To print list, and started right away if you like. Each printer shows whether it is free or printing. Supported:
+  - **Klipper** printers through **Moonraker** (Mainsail, Fluidd), and **Creality** K1, K2, Hi and Ender-3 V3 with Moonraker reachable (rooted, or firmware that opens it);
+  - **OctoPrint**, with an API key;
+  - **Prusa** MK4, XL, MINI and Core One through **PrusaLink** (user and password from the printer, or an API key);
+  - **Bambu Lab** X1, P1 and A1 in **LAN mode** (IP address, serial number and LAN access code). Send a 3MF saved with “Export plate sliced file”.
+
+  The admin adds printers in **Admin → Printers** (with **Test connection**) and ticks **Can print** for each account allowed to use them.
+- **3MF plates and colours.** For 3MF projects from Bambu Studio, OrcaSlicer and PrusaSlicer, the viewer lists the plates (show one at a time or all) and the filament colours with their material, and colours the objects as the slicer does. For large models it first shows the optimized preview: **Show plates and colours** loads the full file.
+- **Similar models.** The viewer lists models that look like the open one, from the whole library, with how alike they are (in %): copies saved under another name, other versions and remixes. The server works out the shape of every model in the background, after the thumbnails; it does not depend on names, size, position or how a model is turned.
+- **Editing many models at once.** Select models (or folders, for everything in them) and click **Edit…**: set or clear the series, replace or add to the description, set the licence (admin), and add or remove your own tags (everyone signed in).
+- **Licence.** Each model can carry a licence (for example CC BY-NC 4.0), shown in the viewer and editable with the description.
+- **Notifications.** **Admin → Notifications** sends a short message when new models turn up (uploaded, imported or copied in), an import from a link finishes, someone opens a share link, or a scheduled backup fails. Turn on one or more ways: **Telegram**, **Discord**, **e-mail** (any SMTP server), **ntfy** and **Gotify**, each with **Send a test**. Messages that come at the same time are sent together.
+- **Two-factor sign-in.** Anyone can turn on two-factor sign-in for themselves in the person menu at the top (the admin too): scan the code with an authenticator app (Google Authenticator, Microsoft Authenticator, Authy, 1Password…), and signing in then also asks for its 6-digit code. Eight recovery codes, each usable once, are given for a lost phone. The admin can require it for every account (each sets it up the next time they sign in) and can turn it off for an account that lost its phone. A lost admin phone: set `ADMIN_RESET_2FA=true` in the container settings once.
+- **Single sign-on.** People can sign in with your login provider (Authelia, Authentik, Keycloak, Zitadel, Pocket ID… anything with OpenID Connect) as well as with a user name and password. Set it up in **Admin → Single sign-on**: the issuer URL, client ID and secret of an application you add in the provider, with the redirect URI shown there. Accounts are made the first time someone signs in, unless you turn that off.
+- **API tokens and Home Assistant.** Signed-in accounts and the admin make tokens in the person menu → **API tokens**, read-only or with full access, for scripts and Home Assistant (see [Home Assistant and the API](#home-assistant-and-the-api)). A token acts as the person who made it; the admin sees and can remove every token.
+- **Automatic backups.** **Admin → Backup → Automatic backups** saves the settings backup into a folder every day or every week (on Sunday) at a set time, and keeps as many as you choose (14 by default), deleting older ones. Pick a folder on another disk or a network share. **Back up now** makes one at once.
+- **Languages.** The app is in **English** and **Spanish** (Español). It follows your browser's language; the globe button at the top changes it for this browser. Names, descriptions and notes stay as they were written. See [Languages and translations](#languages-and-translations) to correct a translation or add a language.
 - **Viewing and downloading are open to everyone** (unless the server is private). **Changes need the admin login:** upload, new folder, rename, move, delete, restore from the trash, and editing names, descriptions and groups (signed-in accounts can import from a link and make share links).
 - Names, descriptions and groups are stored next to each model in a `.3dviewer/` folder:
   ```
@@ -144,6 +169,46 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
   └── .3dviewer/
       └── benchy.stl.json   { "title": "...", "description": "...", "group": "..." }
   ```
+
+## Home Assistant and the API
+
+Make a token in the person menu → **API tokens** (a read-only one is enough to read numbers) and send it as `Authorization: Bearer <token>`. `GET /api/stats/summary` returns:
+
+```json
+{ "models": 1234, "size_bytes": 52428800000, "size_gb": 52.43, "libraries": 3,
+  "added_7d": 12, "added_30d": 40, "views_30d": 310, "prints_30d": 9, "prints_total": 152, "version": "4.0.0" }
+```
+
+A Home Assistant sensor (`configuration.yaml`; put the token in `secrets.yaml`):
+
+```yaml
+rest:
+  - resource: http://192.168.1.10:3000/api/stats/summary
+    headers:
+      Authorization: !secret threedviewer_token   # "Bearer 3dv_..."
+    scan_interval: 900
+    sensor:
+      - name: "3D Viewer models"
+        value_template: "{{ value_json.models }}"
+        unit_of_measurement: "models"
+      - name: "3D Viewer added this week"
+        value_template: "{{ value_json.added_7d }}"
+      - name: "3D Viewer library size"
+        value_template: "{{ value_json.size_gb }}"
+        unit_of_measurement: "GB"
+```
+
+The same token works for the other `/api/...` calls the app makes (for example `/api/stats`, `/api/queue`, `/api/printers`). A read-only token can only read; a full-access token can also change things, as its owner could.
+
+## Languages and translations
+
+3D Viewer speaks **English** and **Spanish**. More languages can be added without a new feature release: each language is one file of texts.
+
+- **A wrong or clumsy translation?** [Open a translation issue](https://github.com/VincentFlagg/3DViewer/issues/new?template=translation.yml) with the text as it is now, where you saw it, and how it should read.
+- **Want 3D Viewer in your language?** Open a translation issue too and say which language. To translate it yourself, open `http://<your-server>/i18n/es.json` from your own 3D Viewer: it lists every English text with its Spanish translation; write yours in place of the Spanish ones and attach the file to the issue.
+- **A text still in English?** In the browser's developer console, `__i18nMissing()` lists the texts on the page that have no translation yet; paste them into the issue.
+
+Everyone who helps is thanked in the release notes.
 
 ## 💡 Ideas and bug reports
 
@@ -291,6 +356,7 @@ If the cache folder runs out of space or reaches its quota (the log says *Cache 
 | `PUID` / `PGID` | `1000` / `1000`  | User and group the app runs as, and the owner of the files it writes. They need write access to your libraries for uploads and notes. |
 | `BROWSE_ROOTS`  | `/volume1…4,/mnt,/media,/models,/data` (the ones that exist) | Folders the Admin page may browse when adding libraries. |
 | `ADMIN_PASSWORD`| unset            | Sets the admin password at startup (also resets a forgotten one). |
+| `ADMIN_RESET_2FA` | unset | `true` turns off the admin's two-factor sign-in at startup, for a lost phone. Remove it again afterwards. |
 | `SESSION_COOKIE_SECURE` | `false`  | Set to `true` when serving over HTTPS.                        |
 | `READ_ONLY`     | `false`          | `true` locks all changes (upload, delete, editing), even for the admin. |
 | `MAX_UPLOAD_MB` | `1024`           | Largest uploaded file in MB. Also on the Admin page; see [Size limits](#size-limits). |

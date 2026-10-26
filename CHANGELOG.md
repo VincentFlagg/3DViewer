@@ -2,6 +2,25 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.0.0 (2026-10-25)
+
+### New
+- **Send to printer**: send sliced files (G-code, .bgcode, sliced 3MF) to Klipper/Moonraker, Creality (with Moonraker), OctoPrint, PrusaLink and Bambu Lab (LAN mode) printers, and start them right away. Printers are added in **Admin → Printers**.
+- **To print**: a shared list of models to print next, with copies, material and a note; reorder it, tick off printed copies (they go into your print log) and send from it. The admin chooses which accounts **Can print**.
+- **3MF plates and colours**: Bambu Studio, OrcaSlicer and PrusaSlicer projects show their plates (one at a time or all) and filament colours.
+- **Similar models**: the viewer lists models of the whole library that look like the open one, by shape (worked out in the background).
+- **Notifications** by Telegram, Discord, e-mail, ntfy or Gotify: new models, finished imports, opened share links and failed backups.
+- **Statistics** page for signed-in accounts: models, size, added, opened and printed per month, by type and library, largest and most used.
+- **Edit many models at once**: series, description, licence and tags of a selection. Models can carry a **licence**.
+- **Languages**: English and Spanish, chosen from the browser or with the globe button. Corrections and new languages are welcome as GitHub issues.
+- **Automatic backups** into a folder every day or week, keeping as many as you choose.
+- **API tokens** (read-only or full access) for scripts and **Home Assistant**, with `/api/stats/summary`.
+- **Single sign-on** with any OpenID Connect provider (Authelia, Authentik, Keycloak…), next to user names and passwords.
+- **Two-factor sign-in** with an authenticator app and recovery codes; the admin can require it for every account.
+
+### Changed
+- **Lighter on the CPU, GPU and memory**: the 3D view only draws while something moves and sleeps otherwise; card pictures load as you scroll to them instead of all at once; the browser gives back its thumbnail-drawing memory when idle; the server's renderer replaces its pages every 50 models to free memory, and starts Chromium without background services it does not need.
+
 ## 3.2.0 (2026-10-24)
 
 ### New

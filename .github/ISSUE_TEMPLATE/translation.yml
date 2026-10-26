@@ -1,0 +1,41 @@
+name: Translation
+description: Correct a translation, report a text still in English, or ask for a new language
+title: "[Translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping 3D Viewer speak your language! To translate a whole language, open `http://<your-server>/i18n/es.json` from your own 3D Viewer, write your translation in place of the Spanish texts and attach the file below.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is it about?
+      options:
+        - A translation is wrong or reads badly
+        - A text is still in English
+        - A new language
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: e.g. Spanish, German, Português (Brasil)
+    validations:
+      required: true
+  - type: textarea
+    id: texts
+    attributes:
+      label: Texts
+      description: The text as it is now, where you saw it (page, dialog, button), and how it should read. For texts still in English, the list from `__i18nMissing()` in the browser console helps.
+      placeholder: |
+        Now: "Añadido"  (Statistics page, first row)
+        Should be: "Añadidos"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 3D Viewer version
+      placeholder: e.g. 4.0.0
