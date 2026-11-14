@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.3.0 (2026-11-14)
+
+### New
+- **Paint** (Prepare for print): paint a model in up to 8 filament colours with a **brush**, **fill an area** up to its edges, or paint **by height**; **refine the mesh** for finer borders. Export the colours for **Bambu Studio / OrcaSlicer**, **PrusaSlicer**, other slicers (coloured 3MF), or as one solid part per colour.
+- **Hollow** (Prepare for print): hollow a model for resin printing, with the wall thickness you choose, **drain holes** at the lowest points or where you click, and an optional **inner lattice**. Shows the resin saved.
+- **Arrange** (Prepare for print): copies of a model packed on the printer's plate. **Arrange…** in the selection bar puts several models (and copies of each) on one plate.
+
 ## 4.2.0 (2026-11-14)
 
 ### New
