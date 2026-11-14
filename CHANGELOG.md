@@ -2,6 +2,18 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.1.0 (2026-11-14)
+
+### New
+- **Prepare for print** in the viewer (for everyone; download with Tools → Export, or Save a copy here as the admin):
+  - **Best orientation**: the three best positions to print in, each with its supports (grams), height and a rough print time; click one to use it.
+  - **Scale to fit**: the largest size that fits the chosen printer, with 5 % to spare, ready for the export.
+  - **Simplify**: fewer triangles (10–90 %, 50 % by default), for lighter files that slice faster.
+  - **Add text**: raised or engraved text, in four fonts, placed by clicking the model.
+
+### Fixed
+- After an update, the gallery could stay blank in a browser that had opened 3D Viewer before, until its cache was cleared.
+
 ## 4.0.1 (2026-10-26)
 
 ### Changed
