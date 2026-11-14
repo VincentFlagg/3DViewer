@@ -2,6 +2,13 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.2.0 (2026-11-14)
+
+### New
+- **Supports** (Prepare for print): **tree** or **straight** supports under the overhangs, with the touch point size and density you choose. See how much plastic they take, and export them with the model as their own part.
+- **Split** (Prepare for print): cut a model wherever you like, or **cut to fit the printer** automatically, and join the parts with **round pegs**, **keyed pegs** (fit one way only) or **dowel holes** with loose dowels, with a 0.1–0.4 mm gap.
+- **Export** can include the supports, and save split parts as one 3MF with separate parts, or one file per part in a .zip.
+
 ## 4.1.0 (2026-11-14)
 
 ### New
