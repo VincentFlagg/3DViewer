@@ -2,6 +2,11 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.5.0 (2026-11-16)
+
+### New
+- **Place parts** (Prepare for print): after a cut, click a part and lay it flat on its cut face, lay it on any face you click, tip or turn it by quarter turns, spin it, or drag it on the plate. **Lay all parts flat** does every part at once and packs them on the plate, ready to export.
+
 ## 4.4.0 (2026-11-16)
 
 ### New
