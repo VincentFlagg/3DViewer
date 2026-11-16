@@ -2,6 +2,15 @@
 
 All notable changes to 3D Viewer. Each version is also on the [Releases](https://github.com/VincentFlagg/3DViewer/releases) page and as a Docker tag: `ghcr.io/vincentflagg/3dviewer:<version>`.
 
+## 4.4.0 (2026-11-16)
+
+### New
+- **Cut along a seam** (Prepare for print → Split → Along a seam): click a sharp edge or a groove and the seam follows it around the model, or draw the line point by point. The model is cut along it with a smooth surface inside, and joined with the same pegs as a straight cut.
+- **Save painting** (Paint, admin): keeps a painting with its model, so it shows for everyone who opens it.
+
+### Changed
+- **One part per colour** exports are about three times lighter, and made about four times faster.
+
 ## 4.3.0 (2026-11-14)
 
 ### New
