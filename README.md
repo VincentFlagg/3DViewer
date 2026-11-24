@@ -214,6 +214,24 @@ Want some models to try it out? Free STL files are available at [**short.ittechs
       └── benchy.stl.json   { "title": "...", "description": "...", "group": "..." }
   ```
 
+## Colours, materials and textures
+
+Models are shown with the colours, materials and textures stored in them. What each format keeps:
+
+| Format | What is shown |
+| --- | --- |
+| **GLB** | Full materials and textures, all inside the one file. The best choice for a model with materials: nothing can go missing. |
+| **GLTF** | The same as GLB; keep its `.bin` and texture files in the same folder. |
+| **OBJ** | The materials of its `.mtl` file and their textures, kept next to the `.obj` under the names the files use. |
+| **FBX, 3DS, COLLADA (.dae), USD/USDZ** | Materials and textures, packed in the file or next to it. |
+| **3MF** | Colours and materials; for Bambu Studio, OrcaSlicer and PrusaSlicer projects also the filament colours and plates. |
+| **PLY** | Vertex colours. |
+| **STEP / IGES** | The colours saved in the file. |
+| **Blender (.blend)** | Material colours, and base colour textures packed in the file. |
+| **STL** | No materials. The few exporters that write colours into a binary STL are shown in colour. |
+
+A model without a material of its own, or with only plain white or grey ones, is shown in the **Default model color** (**Admin → Viewer defaults**). If a textured model shows up in that colour, its `.mtl` or texture files are usually not next to it. A texture that cannot be found is left out, so the model is not drawn black. The compressed previews of large models keep their textures (at up to 2048 px). **Tools → Export** writes the shape only, without the file's materials and textures.
+
 ## Home Assistant and the API
 
 Make a token in the person menu → **API tokens** (a read-only one is enough to read numbers) and send it as `Authorization: Bearer <token>`. `GET /api/stats/summary` returns:
