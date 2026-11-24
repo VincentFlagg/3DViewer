@@ -1,0 +1,50 @@
+# Publishes the pages in wiki/ to this repository's GitHub wiki.
+# The wiki/ folder is the source: pages edited in the wiki's web editor are
+# replaced on the next run, so change them here instead.
+# The wiki must exist first: create any page by hand once (Wiki → Create the
+# first page), then run this workflow (Actions → Publish wiki → Run workflow).
+name: Publish wiki
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - '.github/workflows/wiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Push wiki/ to the wiki
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          url="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
+          if ! git clone --depth 1 "$url" wiki-repo; then
+            echo "::error::The wiki doesn't exist yet. Open the repository's Wiki tab, create the first page (any text), then run this workflow again."
+            exit 1
+          fi
+          rsync -a --delete --exclude '.git' wiki/ wiki-repo/
+          cd wiki-repo
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The wiki is already up to date."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "Update from ${GITHUB_SHA::7}"
+          git push -q
+          echo "Published $(ls ../wiki | wc -l) files to the wiki."

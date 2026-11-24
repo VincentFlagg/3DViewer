@@ -1,0 +1,1 @@
+3D Viewer is free. [Donate](https://3dview.ittechshop.com) · [Buy me a coffee](https://buymeacoffee.com/vincentflagg) · [Discussions](https://github.com/VincentFlagg/3DViewer/discussions) · [Report a bug](https://github.com/VincentFlagg/3DViewer/issues/new?template=bug_report.yml)
